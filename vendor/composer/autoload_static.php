@@ -352,8 +352,8 @@ class ComposerStaticInitf972dd0c0cca79fc6b7dbffcc548c4d2
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -536,6 +536,12 @@ class ComposerStaticInitf972dd0c0cca79fc6b7dbffcc548c4d2
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Semester' => __DIR__ . '/../..' . '/app/Models/Semester.php',
+        'App\\Models\\Student' => __DIR__ . '/../..' . '/app/Models/Student.php',
+        'App\\Models\\Subject' => __DIR__ . '/../..' . '/app/Models/Subject.php',
+        'App\\Models\\Teacher' => __DIR__ . '/../..' . '/app/Models/Teacher.php',
+        'App\\Models\\Tutor' => __DIR__ . '/../..' . '/app/Models/Tutor.php',
+        'App\\Models\\Tutor_class' => __DIR__ . '/../..' . '/app/Models/Tutor_class.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
