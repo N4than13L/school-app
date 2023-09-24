@@ -1,7 +1,8 @@
 <?php
 
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Student;
 
 Route::get('/', function () {
-
-
-
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
