@@ -3,6 +3,11 @@
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Tutor_Class;
+use App\Http\Controllers\Tutor;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +27,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/configuracion', [UserController::class, 'config'])->name('settings');
+Route::post('/usuario/actualizar', [UserController::class, 'update'])->name('user.update');
+
+// agregado de clasificacion padre y padre.
+Route::get('/agregar/clasificacion', [Tutor_Class::class, 'index'])->name('agregar_class_tutor');
+
+Route::get('/agregar/padre', [Tutor::class, 'index'])->name('agregar_padre');
