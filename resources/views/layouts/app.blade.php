@@ -20,11 +20,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-<<<<<<< HEAD
     {{-- <script src="/resources/js/jquery/dev_jquery-3.7.1.js"></script> --}}
-=======
-    <script src="/resources/js/jquery/dev_jquery-3.7.1.js"></script>
->>>>>>> 50ec437320c053029f0a5d1def9a370fe6b47e7d
 </head>
 
 <body>
