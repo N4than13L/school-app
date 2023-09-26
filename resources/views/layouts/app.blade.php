@@ -20,7 +20,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    <script src="/resources/js/jquery/jquery-3.7.1.min.js"></script>
+    {{-- <script src="/resources/js/jquery/dev_jquery-3.7.1.js"></script> --}}
 </head>
 
 <body>
