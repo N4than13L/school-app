@@ -12,6 +12,7 @@ use App\Models\User;
 class Student extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $table = "students";
 

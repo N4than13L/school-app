@@ -9,6 +9,7 @@ use App\Models\Tutor_class;
 class Tutor extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $table = "tutors";
 

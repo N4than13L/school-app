@@ -12,6 +12,11 @@
                         <a class="btn btn-success" href="{{ route('agregar') }}"><i class="fas fa-plus"></i></a>
                     </div>
 
+                    @if (session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
 
                     <table class="table">
                         <thead>

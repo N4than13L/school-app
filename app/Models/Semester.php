@@ -10,6 +10,7 @@ use App\Models\Student;
 class Semester extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $table = "semesters";
 

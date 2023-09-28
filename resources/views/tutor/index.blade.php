@@ -4,60 +4,43 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">{{ __('Clasificacion de padre') }}</h3>
+
+                        <h3 class="text-center">{{ __('Apgragar Padres o tutores') }}</h3>
+                        <a class="btn btn-success" href="{{ route('agregar_padre') }}"><i class="fas fa-plus"></i></a>
                     </div>
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
+                    @if (session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
 
-                            {{-- name --}}
-                            <div class="row mb-3">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Nombre') }}</label>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Edad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                                <div class="col-md-6">
-                                    <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            @foreach ($tutor as $tutors)
+                                <tr>
+                                    <td scope="row">{{ $tutors->id }}</td>
+                                    <td scope="row">{{ $tutors->name }}</td>
+                                    <td scope="row">{{ $tutors->surname }}</td>
+                                    <td scope="row">{{ $tutors->age }}</td>
+                                </tr>
+                            @endforeach
+                    </table>
 
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            {{-- apellido --}}
-                            <div class="row mb-3">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Apellido') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            {{-- enviar --}}
-
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-success">
-                                        {{ __('Agregar tutor') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                @endsection
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

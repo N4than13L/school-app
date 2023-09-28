@@ -14,6 +14,7 @@ class UserController extends Controller
     {
         return view('user.settings');
     }
+
     public function update(Request $request)
     {
         $validate = $this->validate($request, [

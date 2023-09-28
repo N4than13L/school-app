@@ -9,6 +9,7 @@ use App\Models\Subject;
 class Teacher extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $table = "teachers";
 

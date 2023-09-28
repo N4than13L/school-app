@@ -71,7 +71,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('agregar_class_tutor') }}">clasificacion de
                                             padres</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('agregar_padre') }}">agregar padres </a>
+                                    <li><a class="dropdown-item" href="{{ route('ver') }}">agregar padres </a>
                                     </li>
                                 </ul>
                         </li>

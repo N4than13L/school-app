@@ -32,11 +32,21 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/configuracion', [UserController::class, 'config'])->name('settings');
 Route::post('/usuario/actualizar', [UserController::class, 'update'])->name('user.update');
 
-// agregado de clasificacion padre y padre.
+
+// ver listado de clasificacion de padre/tutor 
 Route::get('/agregar/clasificacion', [Tutor_Class::class, 'index'])->name('agregar_class_tutor');
 
+// form para agregar 
 Route::get('/agregar', [Tutor_Class::class, 'agregar_class'])->name('agregar');
 
+// para enviar al servidor 
+Route::post('/save', [Tutor_Class::class, 'save'])->name('save');
 
+// agregar padre/tutor
+Route::get('/ver/padre', [Tutor::class, 'index'])->name('ver');
 
-Route::get('/agregar/padre', [Tutor::class, 'index'])->name('agregar_padre');
+// cargar vista.
+Route::get('/agregar/padre', [Tutor::class, 'agregar_tutor'])->name('agregar_padre');
+
+// envio al servidor
+Route::post('/save/dad', [Tutor::class, 'save'])->name('guardar.padre');
