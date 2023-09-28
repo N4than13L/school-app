@@ -1,46 +1,36 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <div class="card">
+                    <div class="card-header">
+
+                        <h3 class="text-center">{{ __('Clasificaciones') }}</h3>
+                        <a class="btn btn-success" href="{{ route('agregar') }}"><i class="fas fa-plus"></i></a>
+                    </div>
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($tutorClass as $tutorClasses)
+                                <tr>
+                                    <td scope="row">{{ $tutorClasses->id }}</td>
+                                    <td scope="row">{{ $tutorClasses->name }}</td>
+                                </tr>
+                            @endforeach
+                    </table>
+
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-    </div>@extends('layouts.app')
-
-    @section('content')
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="text-center">{{ __('Clasificacion de padre') }}</h3>
-                        </div>
-
-                        <div class="card-body">
-                            <form method="POST" action="{{ route('register') }}">
-                                @csrf
-
-                                {{-- name --}}
-                                <div class="row mb-3">
-                                    <label for="name"
-                                        class="col-md-4 col-form-label text-md-end">{{ __('Nombre') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="name" type="text"
-                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                        @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row mb-0">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-success">
-                                            {{ __('Agregar Clasificacion') }}
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    @endsection
+@endsection

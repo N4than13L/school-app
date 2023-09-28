@@ -35,4 +35,8 @@ Route::post('/usuario/actualizar', [UserController::class, 'update'])->name('use
 // agregado de clasificacion padre y padre.
 Route::get('/agregar/clasificacion', [Tutor_Class::class, 'index'])->name('agregar_class_tutor');
 
+Route::get('/agregar', [Tutor_Class::class, 'agregar_class'])->name('agregar');
+
+
+
 Route::get('/agregar/padre', [Tutor::class, 'index'])->name('agregar_padre');
