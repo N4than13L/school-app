@@ -58,7 +58,7 @@
                         </button>
                     </div>
 
-                    <p class="fs-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam veniam iste debitis,
+                    <p class="fs-3 m-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam veniam iste debitis,
                         voluptates
                         architecto est nihil optio odio modi eius explicabo vel tempore ipsam! Dolores ut voluptate qui
                         tenetur saepe?</p>

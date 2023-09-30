@@ -4,6 +4,7 @@ use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Tutor_Class;
 use App\Http\Controllers\Tutor;
@@ -50,3 +51,6 @@ Route::get('/agregar/padre', [Tutor::class, 'agregar_tutor'])->name('agregar_pad
 
 // envio al servidor
 Route::post('/save/dad', [Tutor::class, 'save'])->name('guardar.padre');
+
+// cargar vista de las asignaturas.
+Route::get("/subjects", [SubjectController::class, 'index'])->name('subjects');

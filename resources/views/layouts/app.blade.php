@@ -61,51 +61,11 @@
                             </li>
                         @endif
                     @else
-                        {{-- funcion para agregar los tutores --}}
-                        <li class="nav-item dropdown">
-                            <div class="dropdown-center">
-                                <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Agregar padres
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ route('agregar_class_tutor') }}">clasificacion de
-                                            padres</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('ver') }}">agregar padres </a>
-                                    </li>
-                                </ul>
-                        </li>
-
-                        {{-- agregar a las asignarturas --}}
-                        <li class="nav-item dropdown">
-                            <div class="dropdown-center">
-                                <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Agregar maestro
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">agregar asignatura</a></li>
-                                    <li><a class="dropdown-item" href="#">agregar maestro </a></li>
-                                </ul>
-                        </li>
-
-                        {{-- agregar estudiantes --}}
-                        <li class="nav-item dropdown">
-                            <div class="dropdown-center">
-                                <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Agregar estudiantes
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">alumno</a></li>
-                                    <li><a class="dropdown-item" href="#">semestre</a></li>
-                                </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
+                        {{-- datos del usuario --}}
+                        <li class="nav-item dropdown" style="list-style: none">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name . ' ' . Auth::user()->surname }}
+                                {{ 'S.r@ ' . Auth::user()->name . ' ' . Auth::user()->surname }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -128,6 +88,79 @@
             </div>
     </div>
     </nav>
+
+    {{-- boton de navbar lateral --}}
+    <div class="m-3 mt-2">
+        <a class="btn btn-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+            aria-controls="offcanvasExample">
+            <i class="fas fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                Menu
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            @guest
+                @if (Route::has('login'))
+                    <li class="nav-item mb-3" style="list-style: none;">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                @endif
+
+                @if (Route::has('register'))
+                    <li class="nav-item mb-3" style="list-style: none;">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
+            @else
+                {{-- funcion para agregar los tutores --}}
+                <li class="nav-item dropdown mb-3" style="list-style: none;">
+                    <div class="dropdown-center">
+                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Agregar padres
+                        </button>
+                        <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item" href="{{ route('agregar_class_tutor') }}">clasificacion de
+                                    padres</a></li>
+                            <li><a class="dropdown-item" href="{{ route('ver') }}">agregar padres </a>
+                            </li>
+                        </ul>
+                </li>
+
+                {{-- agregar a las asignarturas --}}
+                <li class="nav-item dropdown mb-3" style="list-style: none;">
+                    <div class="dropdown-center">
+                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Agregar maestro
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('subjects') }}">agregar asignatura</a></li>
+                            <li><a class="dropdown-item" href="#">agregar maestro </a></li>
+                        </ul>
+                </li>
+
+                {{-- agregar estudiantes --}}
+                <li class="nav-item dropdown mb-3" style="list-style: none;">
+                    <div class="dropdown-center">
+                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Agregar estudiantes
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">alumno</a></li>
+                            <li><a class="dropdown-item" href="#">semestre</a></li>
+                        </ul>
+                </li>
+            @endguest
+        </div>
+    </div>
 
     <main class="py-4">
         @yield('content')

@@ -43,18 +43,19 @@ class Tutor extends Controller
 
         $class = $request->input('class_tutor');
 
-        echo $name . ' ';
-        echo $surname . ' ';
-        echo $age . ' ';
-        echo $class . ' ';
-        die();
 
-        // $tutor_insert->name = $name;
+        $tutor_insert->name = $name;
+        $tutor_insert->surname = $surname;
+        $tutor_insert->age = $age;
+        $tutor_insert->Tutor_Class_id = $class;
 
-
-        // $tutor_class_insert->save();
+        // var_dump($tutor_insert);
+        // die();
 
 
-        // return redirect()->route('agregar_class_tutor')->with(['message' => 'Clasificacion de padre/tutor agregada con exito']);
+        $tutor_insert->save();
+
+
+        return redirect()->route('ver')->with(['message' => ' padre/tutor agregada con exito']);
     }
 }
