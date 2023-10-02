@@ -6,8 +6,8 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">{{ __('Listado de asignaturas ') }}</h3>
-                        <a class="btn btn-success" href="{{ route('add.subject') }}"><i class="fas fa-plus"></i></a>
+                        <h3 class="text-center">{{ __('Listado de Maestros') }}</h3>
+                        <a class="btn btn-success" href="{{ route('add.teachers') }}"><i class="fas fa-plus"></i></a>
                     </div>
 
                     @if (session('message'))
@@ -21,15 +21,18 @@
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">RNC</th>
+                                <th scope="col">Asignatura</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($subject as $subjects)
+                            {{-- @foreach ($subject as $subjects)
                                 <tr>
                                     <td scope="row">{{ $subjects->id }}</td>
                                     <td scope="row">{{ $subjects->name }}</td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
                     </table>
                 </div>
             </div>

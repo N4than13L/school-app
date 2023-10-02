@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subject;
 
+
 class SubjectController extends Controller
 {
 
@@ -17,5 +18,27 @@ class SubjectController extends Controller
         return view('subject.index', [
             'subject' => $subject
         ]);
+    }
+
+    public function add()
+    {
+        return view('subject.add');
+    }
+
+    public function save(Request $request)
+    {
+
+        $subject = new Subject();
+
+        $name = $request->input('name');
+        $subject->name = $name;
+
+
+        // var_dump($name);
+        // die();
+
+        $subject->save();
+
+        return redirect()->route('subjects')->with(['message' => 'asignatura agregada con exito']);
     }
 }

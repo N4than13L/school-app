@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Tutor_Class;
 use App\Http\Controllers\Tutor;
@@ -54,3 +55,15 @@ Route::post('/save/dad', [Tutor::class, 'save'])->name('guardar.padre');
 
 // cargar vista de las asignaturas.
 Route::get("/subjects", [SubjectController::class, 'index'])->name('subjects');
+
+// vista del formulario.
+Route::get("/add/subjects", [SubjectController::class, 'add'])->name('add.subject');
+
+// subir al servidor
+Route::post("/save/subjects", [SubjectController::class, 'save'])->name('save.subject');
+
+// vista de ver maestros.
+Route::get("/teachers", [TeacherController::class, 'index'])->name('teachers');
+
+// formulario.
+Route::get("/add/teachers", [TeacherController::class, 'add'])->name('add.teachers');

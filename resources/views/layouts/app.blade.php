@@ -142,7 +142,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('subjects') }}">agregar asignatura</a></li>
-                            <li><a class="dropdown-item" href="#">agregar maestro </a></li>
+                            <li><a class="dropdown-item" href="{{ route('teachers') }}">agregar maestro </a></li>
                         </ul>
                 </li>
 
