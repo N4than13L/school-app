@@ -155,7 +155,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('students') }}">alumno</a></li>
-                            <li><a class="dropdown-item" href="#">semestre</a></li>
+                            <li><a class="dropdown-item" href="{{ route('period') }}">semestre</a></li>
                         </ul>
                 </li>
             @endguest

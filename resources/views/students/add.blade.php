@@ -33,15 +33,15 @@
 
                             {{-- surnamne --}}
                             <div class="row mb-3">
-                                <label for="surnamne"
+                                <label for="surname"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Apellido') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="surnamne" type="text"
-                                        class="form-control @error('surnamne') is-invalid @enderror" name="surnamne"
-                                        value="{{ old('surnamne') }}" required autocomplete="surnamne" autofocus>
+                                        class="form-control @error('surname') is-invalid @enderror" name="surname"
+                                        value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
-                                    @error('surnamne')
+                                    @error('surname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

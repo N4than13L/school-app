@@ -4,6 +4,7 @@ use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
@@ -80,3 +81,9 @@ Route::get("/add/students", [StudentController::class, 'add'])->name('add.studen
 
 // subir al servidor
 Route::post("/save/students", [StudentController::class, 'save'])->name('save.students');
+
+// semestres 
+Route::get("/period", [SemesterController::class, 'index'])->name('period');
+
+// agregar semestres
+Route::get("/add/period", [SemesterController::class, 'add'])->name('add.period');
