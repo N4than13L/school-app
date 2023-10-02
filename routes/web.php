@@ -4,6 +4,7 @@ use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
@@ -70,3 +71,12 @@ Route::get("/add/teachers", [TeacherController::class, 'add'])->name('add.teache
 
 // enviar al servidor.
 Route::post("/save/teachers", [TeacherController::class, 'save'])->name('save.teachers');
+
+// vista de ver listado de alumnos.
+Route::get("/students", [StudentController::class, 'index'])->name('students');
+
+// formulario 
+Route::get("/add/students", [StudentController::class, 'add'])->name('add.students');
+
+// subir al servidor
+Route::post("/save/students", [StudentController::class, 'save'])->name('save.students');

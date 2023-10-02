@@ -40,4 +40,8 @@
                             </div>
                         </form>
                     </div>
-                @endsection
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
