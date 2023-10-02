@@ -10,7 +10,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('save.subject') }}">
+                        <form method="POST" action="{{ route('save.teachers') }}">
                             @csrf
 
                             {{-- name --}}
@@ -75,12 +75,12 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Asignatura a impartir') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="class_tutor" class="form-select" aria-label="Default select example">
+                                    <select name="subject_id" class="form-select" aria-label="Default select example">
                                         <option selected>Selecciona la asignatura del maestro</option>
-                                        {{-- @foreach ($tutorClass as $tutorClasses)
-                                            <option value="{{ $tutorClasses->id }}">
-                                                {{ $tutorClasses->name }}</option>
-                                        @endforeach --}}
+                                        @foreach ($subject as $subjects)
+                                            <option value="{{ $subjects->id }}">
+                                                {{ $subjects->name }}</option>
+                                        @endforeach
 
                                     </select>
                                 </div>

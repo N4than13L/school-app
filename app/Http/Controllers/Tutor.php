@@ -33,8 +33,6 @@ class Tutor extends Controller
 
     public function save(Request $request)
     {
-
-
         $tutor_insert = new Tutores();
 
         $name = $request->input('name');

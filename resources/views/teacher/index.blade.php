@@ -27,12 +27,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($subject as $subjects)
+                            @foreach ($teacher as $teachers)
                                 <tr>
-                                    <td scope="row">{{ $subjects->id }}</td>
-                                    <td scope="row">{{ $subjects->name }}</td>
+                                    <td scope="row">{{ $teachers->id }}</td>
+                                    <td scope="row">{{ $teachers->name }}</td>
+                                    <td scope="row">{{ $teachers->surname }}</td>
+                                    <td scope="row">{{ $teachers->RNC }}</td>
+                                    <td scope="row">{{ $teachers->Subject_id }}</td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                     </table>
                 </div>
             </div>

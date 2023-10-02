@@ -67,3 +67,6 @@ Route::get("/teachers", [TeacherController::class, 'index'])->name('teachers');
 
 // formulario.
 Route::get("/add/teachers", [TeacherController::class, 'add'])->name('add.teachers');
+
+// enviar al servidor.
+Route::post("/save/teachers", [TeacherController::class, 'save'])->name('save.teachers');
