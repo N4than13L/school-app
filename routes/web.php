@@ -87,3 +87,6 @@ Route::get("/period", [SemesterController::class, 'index'])->name('period');
 
 // agregar semestres
 Route::get("/add/period", [SemesterController::class, 'add'])->name('add.period');
+
+// enviar el servidor
+Route::post("/save/period", [SemesterController::class, 'save'])->name('save.period');

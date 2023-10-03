@@ -24,6 +24,9 @@
                                 <th scope="col">Apellido</th>
                                 <th scope="col">Eddad</th>
                                 <th scope="col">sexo</th>
+                                <th scope="col">padre/tutor</th>
+                                <th scope="col">Maestro</th>
+                                <th scope="col">Aciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,6 +37,18 @@
                                     <td scope="row">{{ $students->surname }}</td>
                                     <td scope="row">{{ $students->age }}</td>
                                     <td scope="row">{{ $students->sex }}</td>
+                                    <td scope="row">{{ $students->Tutors->name }}</td>
+                                    <td scope="row">{{ $students->Teachers->name }}</td>
+
+                                    <td scope="row">
+                                        <a href="#" class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+
+                                        <a href="#" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                     </table>

@@ -20,21 +20,35 @@
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">periodo</th>
-                                <th scope="col">asignatura</th>
-                                <th scope="col">estudiante</th>
+                                <th scope="col">Periódo</th>
+                                <th scope="col">Asignatura</th>
+                                <th scope="col">Estudiante</th>
+                                <th scope="col">Aciones</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($student as $students)
+                            @foreach ($semester as $semesters)
                                 <tr>
-                                    <td scope="row">{{ $students->id }}</td>
-                                    <td scope="row">{{ $students->name }}</td>
-                                    <td scope="row">{{ $students->surname }}</td>
-                                    <td scope="row">{{ $students->age }}</td>
-                                    <td scope="row">{{ $students->sex }}</td>
+                                    <td scope="row">{{ $semesters->id }}</td>
+                                    <td scope="row">{{ $semesters->period }}</td>
+                                    <td scope="row">{{ $semesters->Subject->name }}</td>
+                                    <td scope="row">
+                                        {{ $semesters->Students->name . ' ' . $semesters->Students->surname }}
+                                    </td>
+
+                                    <td scope="row">
+                                        <a href="#" class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+
+                                        <a href="#" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                     </table>
                 </div>
             </div>

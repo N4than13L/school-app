@@ -24,6 +24,7 @@
                                 <th scope="col">Apellido</th>
                                 <th scope="col">RNC</th>
                                 <th scope="col">Asignatura</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,7 +34,17 @@
                                     <td scope="row">{{ $teachers->name }}</td>
                                     <td scope="row">{{ $teachers->surname }}</td>
                                     <td scope="row">{{ $teachers->RNC }}</td>
-                                    <td scope="row">{{ $teachers->Subject_id }}</td>
+                                    <td scope="row">{{ $teachers->Subject->name }}</td>
+                                    <td scope="row">
+
+                                        <a href="#" class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+
+                                        <a href="#" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                     </table>

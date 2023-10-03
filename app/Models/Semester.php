@@ -22,7 +22,7 @@ class Semester extends Model
     protected $fillable = [
         'period',
         'Subject_id',
-        'Student_id',
+        'Students_id',
     ];
 
     // relacion de muchos a uno.
@@ -32,8 +32,8 @@ class Semester extends Model
     }
 
     // relacion de muchos a uno.
-    public function student()
+    public function students()
     {
-        return $this->belongsTo(Student::class, "Student_id");
+        return $this->belongsTo(Student::class, "Students_id");
     }
 }

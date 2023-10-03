@@ -21,6 +21,7 @@
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Nombre</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,16 @@
                                 <tr>
                                     <td scope="row">{{ $subjects->id }}</td>
                                     <td scope="row">{{ $subjects->name }}</td>
+                                    <td scope="row">
+
+                                        <a href="#" class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+
+                                        <a href="#" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                     </table>

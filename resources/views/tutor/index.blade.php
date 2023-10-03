@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <h3 class="text-center">{{ __('Apgragar Padres o tutores') }}</h3>
+                        <h3 class="text-center">{{ __('Agregar Padres o tutores') }}</h3>
                         <a class="btn btn-success" href="{{ route('agregar_padre') }}"><i class="fas fa-plus"></i></a>
                     </div>
 
@@ -25,6 +25,8 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Apellido</th>
                                 <th scope="col">Edad</th>
+                                <th scope="col">Clasificación</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +37,20 @@
                                     <td scope="row">{{ $tutors->name }}</td>
                                     <td scope="row">{{ $tutors->surname }}</td>
                                     <td scope="row">{{ $tutors->age }}</td>
+                                    <td scope="row">{{ $tutors->Tutor_Class->name }}</td>
+
+                                    <th scope="col">
+
+                                        <a href="#" class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+
+                                        <a href="#" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </th>
+
+
                                 </tr>
                             @endforeach
                     </table>

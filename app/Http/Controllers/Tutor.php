@@ -41,7 +41,6 @@ class Tutor extends Controller
 
         $class = $request->input('class_tutor');
 
-
         $tutor_insert->name = $name;
         $tutor_insert->surname = $surname;
         $tutor_insert->age = $age;
@@ -50,10 +49,7 @@ class Tutor extends Controller
         // var_dump($tutor_insert);
         // die();
 
-
         $tutor_insert->save();
-
-
         return redirect()->route('ver')->with(['message' => ' padre/tutor agregada con exito']);
     }
 }
