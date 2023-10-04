@@ -46,6 +46,12 @@ Route::get('/agregar', [Tutor_Class::class, 'agregar_class'])->name('agregar');
 // para enviar al servidor 
 Route::post('/save', [Tutor_Class::class, 'save'])->name('save');
 
+// formulario para actualizar datos de la clasificacion 
+Route::get('/tutorclass/edit/{id}', [Tutor_Class::class, 'edit'])->name('tutorclass.edit');
+
+// enviar al servidor.
+Route::post('/tutorclass/update/{id}', [Tutor_Class::class, 'update'])->name('tutorclass.update');
+
 // agregar padre/tutor
 Route::get('/ver/padre', [Tutor::class, 'index'])->name('ver');
 

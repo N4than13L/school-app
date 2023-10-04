@@ -12,7 +12,6 @@ class Tutor_class extends Model
 
     protected $table = "tutor_class";
 
-
     /**
      * The attributes that are mass assignable.
      *

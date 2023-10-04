@@ -23,6 +23,7 @@
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Nombre</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,10 +31,15 @@
                                 <tr>
                                     <td scope="row">{{ $tutorClasses->id }}</td>
                                     <td scope="row">{{ $tutorClasses->name }}</td>
+                                    <td scope="row">
+                                        <a href="{{ route('tutorclass.edit', ['id' => $tutorClasses->id]) }}"
+                                            class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                     </table>
-
                 </div>
             </div>
         </div>
