@@ -61,6 +61,13 @@ Route::get('/agregar/padre', [Tutor::class, 'agregar_tutor'])->name('agregar_pad
 // envio al servidor
 Route::post('/save/dad', [Tutor::class, 'save'])->name('guardar.padre');
 
+// actualizar datos de los padres.
+Route::get('/edit/dad/{id}', [Tutor::class, 'edit'])->name('edit.padre');
+
+// subir a db.
+Route::post('/update/dad/{id}', [Tutor::class, 'update'])->name('update.padre');
+
+
 // cargar vista de las asignaturas.
 Route::get("/subjects", [SubjectController::class, 'index'])->name('subjects');
 
@@ -95,6 +102,9 @@ Route::post("/save/teachers", [TeacherController::class, 'save'])->name('save.te
 // vista de ver listado de alumnos.
 Route::get("/students", [StudentController::class, 'index'])->name('students');
 
+// editar estudiantes.
+Route::get("/edit/students/{id}", [StudentController::class, 'edit'])->name('edit.students');
+
 // formulario 
 Route::get("/add/students", [StudentController::class, 'add'])->name('add.students');
 
@@ -106,6 +116,13 @@ Route::get("/period", [SemesterController::class, 'index'])->name('period');
 
 // agregar semestres
 Route::get("/add/period", [SemesterController::class, 'add'])->name('add.period');
+
+// sacar el semestre
+Route::get("/edit/period/{id}", [SemesterController::class, 'edit'])->name('edit.period');
+
+// hacer el envio por post. 
+Route::post("/update/period/{id}", [SemesterController::class, 'update'])->name('update.period');
+
 
 // enviar el servidor
 Route::post("/save/period", [SemesterController::class, 'save'])->name('save.period');

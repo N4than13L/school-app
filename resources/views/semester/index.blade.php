@@ -23,7 +23,7 @@
                                 <th scope="col">Periódo</th>
                                 <th scope="col">Asignatura</th>
                                 <th scope="col">Estudiante</th>
-                                <th scope="col">Aciones</th>
+                                {{-- <th scope="col">Aciones</th> --}}
 
                             </tr>
                         </thead>
@@ -38,13 +38,14 @@
                                     </td>
 
                                     <td scope="row">
-                                        <a href="#" class="btn btn-warning">
+                                        <a href="{{ route('edit.period', ['id' => $semesters->id]) }}"
+                                            class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
 
-                                        <a href="#" class="btn btn-danger">
+                                        {{-- <a href="#" class="btn btn-danger">
                                             <i class="fas fa-trash-alt"></i>
-                                        </a>
+                                        </a> --}}
                                     </td>
 
                                 </tr>

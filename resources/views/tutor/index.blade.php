@@ -41,7 +41,7 @@
 
                                     <th scope="col">
 
-                                        <a href="#" class="btn btn-warning">
+                                        <a href="{{ route('edit.padre', ['id' => $tutors->id]) }}" class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
 

@@ -41,7 +41,8 @@
                                     <td scope="row">{{ $students->Teachers->name }}</td>
 
                                     <td scope="row">
-                                        <a href="#" class="btn btn-warning">
+                                        <a href="{{ route('edit.students', ['id' => $students->id]) }}"
+                                            class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
 

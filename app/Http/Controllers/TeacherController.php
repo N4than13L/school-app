@@ -83,8 +83,6 @@ class TeacherController extends Controller
                 'subject_id' => $subject_id
             ]);
 
-
-
         return redirect()->route('teachers')->with(['message' => 'Profesor/@ atualizad@ satisfactoriamente']);
     }
 }
