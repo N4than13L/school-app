@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subject;
-
+use Illuminate\Support\Facades\DB;
 
 class SubjectController extends Controller
 {
@@ -40,5 +40,32 @@ class SubjectController extends Controller
         $subject->save();
 
         return redirect()->route('subjects')->with(['message' => 'asignatura agregada con exito']);
+    }
+
+    // editar.
+    // cargar el formulario.
+    public function editar($id)
+    {
+        $subject = Subject::find($id);
+
+        return view('subject.editar', [
+            'subject' => $subject
+        ]);
+    }
+
+    // enviar al servidor.
+    public function update(Request $request, $id)
+    {
+        $subject = new Subject();
+        $name = $request->input('name');
+        $subject->name = $name;
+
+        DB::table('subjects')
+            ->where('id', $id)
+            ->update(['name' => $name]);
+
+        // $tutorClass->update();
+
+        return redirect()->route('subjects')->with(['message' => 'Datos asignatura actualizada con exito']);
     }
 }

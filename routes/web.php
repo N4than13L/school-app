@@ -70,8 +70,17 @@ Route::get("/add/subjects", [SubjectController::class, 'add'])->name('add.subjec
 // subir al servidor
 Route::post("/save/subjects", [SubjectController::class, 'save'])->name('save.subject');
 
+// materia vista del formulario
+Route::get("/edit/subjects/{id}", [SubjectController::class, 'editar'])->name('edit.subject');
+
+// enviar al servidor.
+Route::post("/update/subjects/{id}", [SubjectController::class, 'update'])->name('update.subject');
+
+
 // vista de ver maestros.
 Route::get("/teachers", [TeacherController::class, 'index'])->name('teachers');
+
+
 
 // formulario.
 Route::get("/add/teachers", [TeacherController::class, 'add'])->name('add.teachers');

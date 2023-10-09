@@ -31,7 +31,8 @@
                                     <td scope="row">{{ $subjects->name }}</td>
                                     <td scope="row">
 
-                                        <a href="#" class="btn btn-warning">
+                                        <a href="{{ route('edit.subject', ['id' => $subjects->id]) }}"
+                                            class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
 
