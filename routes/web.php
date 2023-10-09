@@ -80,7 +80,11 @@ Route::post("/update/subjects/{id}", [SubjectController::class, 'update'])->name
 // vista de ver maestros.
 Route::get("/teachers", [TeacherController::class, 'index'])->name('teachers');
 
+// vista para actuaklizar maestros.
+Route::get("/edit/teachers/{id}", [TeacherController::class, 'edit'])->name('teachers.edit');
 
+// guardar en db.
+Route::post("/upodate/teachers/{id}", [TeacherController::class, 'update'])->name('teachers.update');
 
 // formulario.
 Route::get("/add/teachers", [TeacherController::class, 'add'])->name('add.teachers');
