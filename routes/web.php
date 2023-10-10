@@ -105,6 +105,8 @@ Route::get("/students", [StudentController::class, 'index'])->name('students');
 // editar estudiantes.
 Route::get("/edit/students/{id}", [StudentController::class, 'edit'])->name('edit.students');
 
+Route::post("/update/students/{id}", [StudentController::class, 'update'])->name('update.students');
+
 // formulario 
 Route::get("/add/students", [StudentController::class, 'add'])->name('add.students');
 

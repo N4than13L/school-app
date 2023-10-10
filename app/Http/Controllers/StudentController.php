@@ -111,14 +111,19 @@ class StudentController extends Controller
         $student->Teachers_id = $class_teacher;
         $student->Tutors_id = $class_tutor;
 
-        var_dump($student);
-        die();
+        // var_dump($student);
+        // die();
 
         DB::table('students')
             ->where('id', $id)
             ->update([
                 'name' => $name,
-                'surname' => $surname
+                'surname' => $surname,
+                'age' => $age,
+                'sex' => $sex,
+                'Users_id' => $id,
+                'Teachers_id' => $class_teacher,
+                'Tutors_id' => $class_tutor
             ]);
 
         return redirect()->route('students')->with(['message' => 'Informacion de alumno actualizada con exito']);
