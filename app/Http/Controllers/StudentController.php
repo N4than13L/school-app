@@ -94,7 +94,7 @@ class StudentController extends Controller
         $student = new Student();
 
         $user = Auth::user();
-        $id = $user->id;
+        $id_user = $user->id;
 
         $name = $request->input('name');
         $surname = $request->input('surname');
@@ -121,7 +121,7 @@ class StudentController extends Controller
                 'surname' => $surname,
                 'age' => $age,
                 'sex' => $sex,
-                'Users_id' => $id,
+                'Users_id' => $id_user,
                 'Teachers_id' => $class_teacher,
                 'Tutors_id' => $class_tutor
             ]);
