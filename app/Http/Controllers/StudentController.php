@@ -26,7 +26,7 @@ class StudentController extends Controller
     public function index()
     {
         // sacar los registros de la base de datos.
-        $student = Student::orderBy('id', 'desc')->paginate(10);
+        $student = Student::orderBy('id', 'desc')->paginate(5);
 
         return view('students.index', [
             'student' => $student
