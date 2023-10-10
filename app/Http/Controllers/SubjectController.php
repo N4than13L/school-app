@@ -24,7 +24,7 @@ class SubjectController extends Controller
     public function index()
     {
         // sacar los registros de la base de datos.
-        $subject = Subject::orderBy('id', 'desc')->paginate(50);
+        $subject = Subject::orderBy('id', 'desc')->paginate(10);
 
         return view('subject.index', [
             'subject' => $subject
@@ -78,5 +78,14 @@ class SubjectController extends Controller
         // $tutorClass->update();
 
         return redirect()->route('subjects')->with(['message' => 'Datos asignatura actualizada con exito']);
+    }
+
+    public function delete($id)
+    {
+        // $user = Auth::user();
+        $tutores = Subject::find($id);
+
+        $tutores->delete();
+        return redirect()->route('ver')->with(['message' => 'asignatura eliminada']);
     }
 }

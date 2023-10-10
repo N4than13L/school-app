@@ -23,7 +23,7 @@ class SemesterController extends Controller
     // vista principal
     public function index()
     {
-        $semester = Semester::orderBy('id', 'desc')->paginate(50);
+        $semester = Semester::orderBy('id', 'desc')->paginate(10);
 
         return view('semester.index', [
             'semester' => $semester

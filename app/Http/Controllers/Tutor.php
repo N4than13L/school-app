@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tutor as Tutores;
 use App\Models\Tutor_class as TutorClass;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Tutor extends Controller
@@ -24,7 +25,7 @@ class Tutor extends Controller
     public function index()
     {
         // sacar los registros de la base de datos.
-        $tutor = Tutores::orderBy('id', 'desc')->paginate(50);
+        $tutor = Tutores::orderBy('id', 'desc')->paginate(10);
 
         return view('tutor.index', [
             'tutor' => $tutor
@@ -103,5 +104,14 @@ class Tutor extends Controller
             ]);
 
         return redirect()->route('ver')->with(['message' => ' padre/tutor actualizado con exito']);
+    }
+
+    public function delete($id)
+    {
+        $user = Auth::user();
+        $tutores = Tutores::find($id);
+
+        $tutores->delete();
+        return redirect()->route('ver')->with(['message' => ' padre/tutor eliminado']);
     }
 }

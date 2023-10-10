@@ -50,7 +50,13 @@
 
                                 </tr>
                             @endforeach
+
                     </table>
+
+
+                    <div class="clearfix">
+                        {{ $semester->links() }}
+                    </div>
                 </div>
             </div>
         </div>

@@ -45,7 +45,7 @@
                                             <i class="fas fa-edit"></i>
                                         </a>
 
-                                        <a href="#" class="btn btn-danger">
+                                        <a href="{{ route('delete.padre', ['id' => $tutors->id]) }}" class="btn btn-danger">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </th>
@@ -54,7 +54,9 @@
                                 </tr>
                             @endforeach
                     </table>
-
+                    <div class="clearfix">
+                        {{ $tutor->links() }}
+                    </div>
                 </div>
             </div>
         </div>

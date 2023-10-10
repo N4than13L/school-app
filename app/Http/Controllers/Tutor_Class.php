@@ -24,7 +24,7 @@ class Tutor_Class extends Controller
     public function index()
     {
         // sacar los registros de la base de datos.
-        $tutorClass = TutorClass::orderBy('id', 'desc')->paginate(50);
+        $tutorClass = TutorClass::orderBy('id', 'desc')->paginate(10);
 
         return view('tutor_class.index', [
             'tutorClass' => $tutorClass
@@ -69,5 +69,15 @@ class Tutor_Class extends Controller
         // $tutorClass->update();
 
         return redirect()->route('agregar_class_tutor')->with(['message' => 'Datos actualizados con exito']);
+    }
+
+
+    public function delete($id)
+    {
+        // $user = Auth::user();
+        $tutores = TutorClass::find($id);
+
+        $tutores->delete();
+        return redirect()->route('ver')->with(['message' => ' clasificacion de tutor eliminada']);
     }
 }

@@ -36,6 +36,7 @@
                                             class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
+
                                     </td>
                                 </tr>
                             @endforeach

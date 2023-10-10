@@ -26,7 +26,7 @@ class StudentController extends Controller
     public function index()
     {
         // sacar los registros de la base de datos.
-        $student = Student::orderBy('id', 'desc')->paginate(50);
+        $student = Student::orderBy('id', 'desc')->paginate(10);
 
         return view('students.index', [
             'student' => $student
@@ -127,5 +127,15 @@ class StudentController extends Controller
             ]);
 
         return redirect()->route('students')->with(['message' => 'Informacion de alumno actualizada con exito']);
+    }
+
+    public function delete($id)
+    {
+        $user = Auth::user();
+        $student = Student::find($id);
+
+        $student->delete();
+
+        return redirect()->route('ver')->with(['message' => ' padre/tutor eliminado']);
     }
 }

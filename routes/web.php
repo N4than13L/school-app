@@ -49,6 +49,8 @@ Route::post('/save', [Tutor_Class::class, 'save'])->name('save');
 // formulario para actualizar datos de la clasificacion 
 Route::get('/tutorclass/edit/{id}', [Tutor_Class::class, 'edit'])->name('tutorclass.edit');
 
+Route::get('/tutorclass/delete/{id}', [Tutor_Class::class, 'delete'])->name('tutorclass.delete');
+
 // enviar al servidor.
 Route::post('/tutorclass/update/{id}', [Tutor_Class::class, 'update'])->name('tutorclass.update');
 
@@ -67,6 +69,10 @@ Route::get('/edit/dad/{id}', [Tutor::class, 'edit'])->name('edit.padre');
 // subir a db.
 Route::post('/update/dad/{id}', [Tutor::class, 'update'])->name('update.padre');
 
+// eliminar tutor.
+Route::get('/delete/dad/{id}', [Tutor::class, 'delete'])->name('delete.padre');
+
+
 
 // cargar vista de las asignaturas.
 Route::get("/subjects", [SubjectController::class, 'index'])->name('subjects');
@@ -79,6 +85,8 @@ Route::post("/save/subjects", [SubjectController::class, 'save'])->name('save.su
 
 // materia vista del formulario
 Route::get("/edit/subjects/{id}", [SubjectController::class, 'editar'])->name('edit.subject');
+
+Route::get("/delete/subjects/{id}", [SubjectController::class, 'delete'])->name('delete.subject');
 
 // enviar al servidor.
 Route::post("/update/subjects/{id}", [SubjectController::class, 'update'])->name('update.subject');
@@ -113,6 +121,9 @@ Route::get("/add/students", [StudentController::class, 'add'])->name('add.studen
 // subir al servidor
 Route::post("/save/students", [StudentController::class, 'save'])->name('save.students');
 
+Route::get("/save/students/{id}", [StudentController::class, 'delete'])->name('delete.students');
+
+
 // semestres 
 Route::get("/period", [SemesterController::class, 'index'])->name('period');
 
@@ -124,7 +135,6 @@ Route::get("/edit/period/{id}", [SemesterController::class, 'edit'])->name('edit
 
 // hacer el envio por post. 
 Route::post("/update/period/{id}", [SemesterController::class, 'update'])->name('update.period');
-
 
 // enviar el servidor
 Route::post("/save/period", [SemesterController::class, 'save'])->name('save.period');

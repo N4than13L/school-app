@@ -49,6 +49,10 @@
                                 </tr>
                             @endforeach
                     </table>
+
+                    <div class="clearfix">
+                        {{ $teacher->links() }}
+                    </div>
                 </div>
             </div>
         </div>

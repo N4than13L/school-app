@@ -46,13 +46,18 @@
                                             <i class="fas fa-edit"></i>
                                         </a>
 
-                                        <a href="#" class="btn btn-danger">
+                                        <a href="{{ route('delete.students', ['id' => $students->id]) }}"
+                                            class="btn btn-danger">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>
                                 </tr>
                             @endforeach
                     </table>
+
+                    <div class="clearfix">
+                        {{ $student->links() }}
+                    </div>
                 </div>
             </div>
         </div>
