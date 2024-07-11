@@ -11,6 +11,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Tutor_Class;
 use App\Http\Controllers\Tutor;
+use App\Http\Controllers\Course_classificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/configuracion', [UserController::class, 'config'])->name('settings');
 Route::post('/usuario/actualizar', [UserController::class, 'update'])->name('user.update');
+
+// ver listado de clasificacion de curso clasificacion
+Route::get('/class_courses/index', [Course_classificationController::class, 'index'])->name('class_courses');
+
 
 
 // ver listado de clasificacion de padre/tutor 

@@ -18,12 +18,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
 
     {{-- <script src="/resources/js/jquery/dev_jquery-3.7.1.js"></script> --}}
 </head>
 
-<body>
+<body id="fondo">
     <div id="app">
         <nav class="navbar navbar-expand-md" style="background-color: #9ee6bd">
             <div class="container">
@@ -158,6 +158,21 @@
                             <li><a class="dropdown-item" href="{{ route('period') }}">semestre</a></li>
                         </ul>
                 </li>
+
+                {{-- agregar estudiantes --}}
+                <li class="nav-item dropdown mb-3" style="list-style: none;">
+                    <div class="dropdown-center">
+                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Agregar cursos
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('class_courses') }}">curso
+                                    clasificacion</a></li>
+
+                        </ul>
+                </li>
+
             @endguest
         </div>
     </div>

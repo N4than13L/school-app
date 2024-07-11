@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Teacher;
 use App\Models\Tutor;
 use App\Models\User;
+use App\Models\Course;
 
 
 class Student extends Model
@@ -22,13 +23,15 @@ class Student extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'surname',
         'age',
         'sex',
         'Users_id',
         'Teachers_id',
-        'Tutors_id'
+        'Tutors_id',
+        'Course_id'
     ];
 
     // relacion de muchos a uno.
@@ -47,5 +50,10 @@ class Student extends Model
     public function users()
     {
         return $this->belongsTo(User::class, "Users_id");
+    }
+
+    public function courses()
+    {
+        return $this->belongsTo(Course::class, "Course_id");
     }
 }

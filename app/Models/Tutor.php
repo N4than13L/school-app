@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tutor_class;
+use App\Models\User;
 
 class Tutor extends Model
 {
@@ -19,9 +20,11 @@ class Tutor extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'surname',
         'age',
+        'Users_id',
         'Tutor_Class_id',
     ];
 
@@ -29,5 +32,11 @@ class Tutor extends Model
     public function tutor_class()
     {
         return $this->belongsTo(Tutor_class::class, "Tutor_Class_id");
+    }
+
+    // relacion de muchos a uno.
+    public function users()
+    {
+        return $this->belongsTo(User::class, "Users_id");
     }
 }
