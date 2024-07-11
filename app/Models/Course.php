@@ -16,5 +16,6 @@ class Course extends Model
         'id',
         'name',
         'Users_id',
+        'Course_classification_id'
     ];
 }

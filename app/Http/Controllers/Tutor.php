@@ -45,22 +45,24 @@ class Tutor extends Controller
     public function save(Request $request)
     {
         $tutor_insert = new Tutores();
+        $user = Auth::user()->id;
 
         $name = $request->input('name');
         $surname = $request->input('surname');
         $age = $request->input('age');
-
         $class = $request->input('class_tutor');
 
         $tutor_insert->name = $name;
         $tutor_insert->surname = $surname;
         $tutor_insert->age = $age;
         $tutor_insert->Tutor_Class_id = $class;
+        $tutor_insert->Users_id = $user;
 
         // var_dump($tutor_insert);
         // die();
 
         $tutor_insert->save();
+
         return redirect()->route('ver')->with(['message' => ' padre/tutor agregada con exito']);
     }
 

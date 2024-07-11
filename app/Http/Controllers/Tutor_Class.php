@@ -42,6 +42,10 @@ class Tutor_Class extends Controller
         $name = $request->input('name');
         $tutor_class_insert->id = null;
         $tutor_class_insert->name = $name;
+
+        $user = Auth::user()->id;
+        $tutor_class_insert->Users_id = $user;
+
         $tutor_class_insert->save();
 
         return redirect()->route('agregar_class_tutor')->with(['message' => 'Clasificacion de padre/tutor agregada con exito']);

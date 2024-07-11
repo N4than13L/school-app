@@ -53,7 +53,6 @@ class TeacherController extends Controller
         return redirect()->route('teachers')->with(['message' => 'Profesor/@ agregad@ satisfactoriamente']);
     }
 
-
     public function edit($id)
     {
         $teacher = Teacher::find($id);

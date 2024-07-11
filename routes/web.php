@@ -40,7 +40,11 @@ Route::post('/usuario/actualizar', [UserController::class, 'update'])->name('use
 // ver listado de clasificacion de curso clasificacion
 Route::get('/class_courses/index', [Course_classificationController::class, 'index'])->name('class_courses');
 
+Route::get('/class_courses/add', [Course_classificationController::class, 'add'])->name('class_courses.add');
 
+Route::post('/class_courses/save', [Course_classificationController::class, 'save'])->name('class_courses.save');
+
+Route::get('/class_courses/delete/{id}', [Course_classificationController::class, 'delete'])->name('class_courses.delete');
 
 // ver listado de clasificacion de padre/tutor 
 Route::get('/agregar/clasificacion', [Tutor_Class::class, 'index'])->name('agregar_class_tutor');

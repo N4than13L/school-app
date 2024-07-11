@@ -10,12 +10,11 @@ class Course_classification extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $table = "Course_classification";
+    protected $table = "course_classification";
 
     protected $fillable = [
         'id',
         'name',
         'Users_id',
-        'Course_id'
     ];
 }
