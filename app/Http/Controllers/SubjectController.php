@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subject;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class SubjectController extends Controller
 {
@@ -38,14 +39,14 @@ class SubjectController extends Controller
 
     public function save(Request $request)
     {
-
+        $user = Auth::user()->id;
         $subject = new Subject();
 
         $name = $request->input('name');
         $subject->name = $name;
+        $subject->Users_id = $user;
 
-
-        // var_dump($name);
+        // var_dump($subject);
         // die();
 
         $subject->save();

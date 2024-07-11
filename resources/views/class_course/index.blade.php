@@ -20,36 +20,30 @@
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Periódo</th>
+                                <th scope="col">Período</th>
                                 <th scope="col">Asignatura</th>
                                 <th scope="col">Estudiante</th>
-                                {{-- <th scope="col">Aciones</th> --}}
-
+                                <th scope="col">Aciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($semester as $semesters) --}}
-                            {{-- <tr> --}}
-                            {{-- <td scope="row">{{ $semesters->id }}</td>
-                                    <td scope="row">{{ $semesters->period }}</td>
-                                    <td scope="row">{{ $semesters->Subject->name }}</td>
+                            @foreach ($course_class as $course_classes)
+                                <tr>
+                                    <td scope="row">{{ $course_classes->id }}</td>
+
+
                                     <td scope="row">
-                                        {{ $semesters->Students->name . ' ' . $semesters->Students->surname }}
-                                    </td> --}}
-
-                            {{-- <td scope="row">
-                                        <a href="{{ route('edit.period', ['id' => $semesters->id]) }}"
-                                            class="btn btn-warning">
+                                        <a href="#" class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
-                                        </a> --}}
+                                        </a>
 
-                            {{-- <a href="#" class="btn btn-danger">
+                                        <a href="#" class="btn btn-danger">
                                             <i class="fas fa-trash-alt"></i>
-                                        </a> --}}
-                            </td>
+                                        </a>
+                                    </td>
 
-                            </tr>
-                            {{-- @endforeach --}}
+                                </tr>
+                            @endforeach
 
                     </table>
 

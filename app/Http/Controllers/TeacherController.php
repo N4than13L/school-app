@@ -7,6 +7,7 @@ use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
@@ -36,12 +37,16 @@ class TeacherController extends Controller
         $name = $request->input('name');
         $surname = $request->input('surname');
         $rnc = $request->input('rnc');
+        $age = $request->input("age");
         $subject_id = $request->input('subject_id');
+        $user = Auth::user()->id;
 
         $teacher->name = $name;
         $teacher->surname = $surname;
         $teacher->rnc = $rnc;
         $teacher->Subject_id = $subject_id;
+        $teacher->age = $age;
+        $teacher->Users_id = $user;
 
         $teacher->save();
 
@@ -67,12 +72,14 @@ class TeacherController extends Controller
         $name = $request->input('name');
         $surname = $request->input('surname');
         $rnc = $request->input('rnc');
+        $age = $request->input("age");
         $subject_id = $request->input('subject_id');
 
         $teacher->name = $name;
         $teacher->surname = $surname;
         $teacher->rnc = $rnc;
         $teacher->Subject_id = $subject_id;
+        $teacher->age = $age;
 
         DB::table('teachers')
             ->where('id', $id)
@@ -80,6 +87,7 @@ class TeacherController extends Controller
                 'name' => $name,
                 'surname' => $surname,
                 'RNC' => $rnc,
+                'age' => $age,
                 'subject_id' => $subject_id
             ]);
 

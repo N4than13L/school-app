@@ -22,6 +22,7 @@
                                 <th scope="col">Id</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Apellido</th>
+                                <th scope="col">Edad</th>
                                 <th scope="col">RNC</th>
                                 <th scope="col">Asignatura</th>
                                 <th scope="col">Acciones</th>
@@ -33,6 +34,7 @@
                                     <td scope="row">{{ $teachers->id }}</td>
                                     <td scope="row">{{ $teachers->name }}</td>
                                     <td scope="row">{{ $teachers->surname }}</td>
+                                    <td scope="row">{{ $teachers->age }} años</td>
                                     <td scope="row">{{ $teachers->RNC }}</td>
                                     <td scope="row">{{ $teachers->Subject->name }}</td>
                                     <td scope="row">

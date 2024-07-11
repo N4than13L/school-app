@@ -38,9 +38,9 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Apellido') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" value="{{ $teacher->surname }}"
+                                    <input id="surname" type="text" value="{{ $teacher->surname }}"
                                         class="form-control @error('surname') is-invalid @enderror" name="surname"
-                                        value="{{ old('name') }}" required autocomplete="surname" autofocus>
+                                        value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
                                     @error('surname')
                                         <span class="invalid-feedback" role="alert">
@@ -49,6 +49,26 @@
                                     @enderror
                                 </div>
                             </div>
+
+                            {{-- age --}}
+                            <div class="row mb-3">
+                                <label for="age"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Edad') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="age" type="text"
+                                        class="form-control @error('age') is-invalid @enderror" name="age"
+                                        value="{{ $teacher->age }}" value="{{ old('age') }}" required
+                                        autocomplete="age" autofocus>
+
+                                    @error('age')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
 
 
                             {{-- RNC --}}
@@ -69,9 +89,9 @@
                                 </div>
                             </div>
 
-                            {{-- class_tutor --}}
+                            {{-- asignatura --}}
                             <div class="row mb-3">
-                                <label for="class_tutor"
+                                <label for="asignatura"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Asignatura a impartir') }}</label>
 
                                 <div class="col-md-6">
