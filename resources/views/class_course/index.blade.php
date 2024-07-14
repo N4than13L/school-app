@@ -20,8 +20,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">nombre</th>
-                                <th scope="col">acciones</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,7 +31,8 @@
                                     <td scope="row">{{ $course_classes->name }}</td>
 
                                     <td scope="row">
-                                        <a href="#" class="btn btn-warning">
+                                        <a href="{{ route('class_courses.edit', ['id' => $course_classes->id]) }}"
+                                            class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
 

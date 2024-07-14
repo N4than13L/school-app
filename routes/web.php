@@ -44,6 +44,11 @@ Route::get('/class_courses/add', [Course_classificationController::class, 'add']
 
 Route::post('/class_courses/save', [Course_classificationController::class, 'save'])->name('class_courses.save');
 
+
+Route::get('/class_courses/edit/{id}', [Course_classificationController::class, 'edit'])->name('class_courses.edit');
+
+Route::post('/class_courses/update/{id}', [Course_classificationController::class, 'update'])->name('class_courses.update');
+
 Route::get('/class_courses/delete/{id}', [Course_classificationController::class, 'delete'])->name('class_courses.delete');
 
 // ver listado de clasificacion de padre/tutor 
