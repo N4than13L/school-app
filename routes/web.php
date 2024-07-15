@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Tutor_Class;
 use App\Http\Controllers\Tutor;
 use App\Http\Controllers\Course_classificationController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,15 @@ Route::post('/class_courses/update/{id}', [Course_classificationController::clas
 
 Route::get('/class_courses/delete/{id}', [Course_classificationController::class, 'delete'])->name('class_courses.delete');
 
+// subir datos de los cursos como tal.
+Route::get('/course/index', [CourseController::class, 'index'])->name('course.index');
+Route::get('/course/add', [CourseController::class, 'add'])->name('course.add');
+Route::post('/course/save', [CourseController::class, 'save'])->name('course.save');
+Route::get('/course/edit/{id}', [CourseController::class, 'edit'])->name('course.edit');
+Route::post('/course/update/{id}', [CourseController::class, 'update'])->name('course.update');
+Route::get('/course/delete/{id}', [CourseController::class, 'delete'])->name('course.delete');
+
+
 // ver listado de clasificacion de padre/tutor 
 Route::get('/agregar/clasificacion', [Tutor_Class::class, 'index'])->name('agregar_class_tutor');
 
@@ -60,7 +70,7 @@ Route::get('/agregar', [Tutor_Class::class, 'agregar_class'])->name('agregar');
 // para enviar al servidor 
 Route::post('/save', [Tutor_Class::class, 'save'])->name('save');
 
-// formulario para actualizar datos de la clasificacion 
+// formulario para actualizar datos de la clasificacion de padre 
 Route::get('/tutorclass/edit/{id}', [Tutor_Class::class, 'edit'])->name('tutorclass.edit');
 
 Route::get('/tutorclass/delete/{id}', [Tutor_Class::class, 'delete'])->name('tutorclass.delete');
@@ -85,8 +95,6 @@ Route::post('/update/dad/{id}', [Tutor::class, 'update'])->name('update.padre');
 
 // eliminar tutor.
 Route::get('/delete/dad/{id}', [Tutor::class, 'delete'])->name('delete.padre');
-
-
 
 // cargar vista de las asignaturas.
 Route::get("/subjects", [SubjectController::class, 'index'])->name('subjects');

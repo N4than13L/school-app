@@ -169,6 +169,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('class_courses') }}">curso
                                     clasificacion</a></li>
+                            <li><a class="dropdown-item" href="{{ route('course.index') }}"> Agregar cursos</a></li>
 
                         </ul>
                 </li>
