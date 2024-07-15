@@ -33,21 +33,29 @@
 
             </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> --}}
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav me-auto">
+                {{-- para poner mas enlaces en caso de ser necesario --}}
+            </ul>
+
+
+            <div class="m-3 mt-2">
+                <a class="btn btn-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                    aria-controls="offcanvasExample">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-
-                </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
-                    <!-- Authentication Links -->
+                    {{-- <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
@@ -61,122 +69,120 @@
                             </li>
                         @endif
                     @else
-                        {{-- datos del usuario --}}
-                        <li class="nav-item dropdown" style="list-style: none">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ 'S.r@ ' . Auth::user()->name . ' ' . Auth::user()->surname }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('settings') }}"><i class="fas fa-cog"></i>
-                                    Ajustes</a>
-
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
+                    @endguest --}}
                 </ul>
             </div>
     </div>
     </nav>
 
     {{-- boton de navbar lateral --}}
-    <div class="m-3 mt-2">
-        <a class="btn btn-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-            aria-controls="offcanvasExample">
-            <i class="fas fa-bars"></i>
-        </a>
-    </div>
+    <section id="section-sidebar">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                    Menu
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item mb-3" style="list-style: none;">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-                Menu
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            @guest
-                @if (Route::has('login'))
-                    <li class="nav-item mb-3" style="list-style: none;">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    @if (Route::has('register'))
+                        <li class="nav-item mb-3" style="list-style: none;">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    {{-- funcion para agregar los tutores --}}
+                    <li class="nav-item dropdown mb-3" style="list-style: none;">
+                        <div class="dropdown-center">
+                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Agregar padres
+                            </button>
+                            <ul class="dropdown-menu ">
+                                <li><a class="dropdown-item" href="{{ route('agregar_class_tutor') }}">clasificacion de
+                                        padres</a></li>
+                                <li><a class="dropdown-item" href="{{ route('ver') }}">agregar padres </a>
+                                </li>
+                            </ul>
                     </li>
-                @endif
 
-                @if (Route::has('register'))
-                    <li class="nav-item mb-3" style="list-style: none;">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    {{-- agregar a las asignarturas --}}
+                    <li class="nav-item dropdown mb-3" style="list-style: none;">
+                        <div class="dropdown-center">
+                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Agregar maestro
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('subjects') }}">agregar asignatura</a></li>
+                                <li><a class="dropdown-item" href="{{ route('teachers') }}">agregar maestro </a></li>
+                            </ul>
                     </li>
-                @endif
-            @else
-                {{-- funcion para agregar los tutores --}}
-                <li class="nav-item dropdown mb-3" style="list-style: none;">
-                    <div class="dropdown-center">
-                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Agregar padres
-                        </button>
-                        <ul class="dropdown-menu ">
-                            <li><a class="dropdown-item" href="{{ route('agregar_class_tutor') }}">clasificacion de
-                                    padres</a></li>
-                            <li><a class="dropdown-item" href="{{ route('ver') }}">agregar padres </a>
-                            </li>
-                        </ul>
-                </li>
 
-                {{-- agregar a las asignarturas --}}
-                <li class="nav-item dropdown mb-3" style="list-style: none;">
-                    <div class="dropdown-center">
-                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Agregar maestro
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('subjects') }}">agregar asignatura</a></li>
-                            <li><a class="dropdown-item" href="{{ route('teachers') }}">agregar maestro </a></li>
-                        </ul>
-                </li>
+                    {{-- agregar estudiantes --}}
+                    <li class="nav-item dropdown mb-3" style="list-style: none;">
+                        <div class="dropdown-center">
+                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Agregar estudiantes
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('students') }}">alumno</a></li>
+                                <li><a class="dropdown-item" href="{{ route('period') }}">semestre</a></li>
+                            </ul>
+                    </li>
 
-                {{-- agregar estudiantes --}}
-                <li class="nav-item dropdown mb-3" style="list-style: none;">
-                    <div class="dropdown-center">
-                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Agregar estudiantes
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('students') }}">alumno</a></li>
-                            <li><a class="dropdown-item" href="{{ route('period') }}">semestre</a></li>
-                        </ul>
-                </li>
+                    {{-- agregar estudiantes --}}
+                    <li class="nav-item dropdown mb-3" style="list-style: none;">
+                        <div class="dropdown-center">
+                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Agregar cursos
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('class_courses') }}">curso
+                                        clasificacion</a></li>
+                                <li><a class="dropdown-item" href="{{ route('course.index') }}"> Agregar cursos</a></li>
 
-                {{-- agregar estudiantes --}}
-                <li class="nav-item dropdown mb-3" style="list-style: none;">
-                    <div class="dropdown-center">
-                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Agregar cursos
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('class_courses') }}">curso
-                                    clasificacion</a></li>
-                            <li><a class="dropdown-item" href="{{ route('course.index') }}"> Agregar cursos</a></li>
+                            </ul>
+                    </li>
 
-                        </ul>
-                </li>
+                    {{-- datos del usuario --}}
+                    <li class="nav-item dropdown" style="list-style: none">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ 'S.r@ ' . Auth::user()->name . ' ' . Auth::user()->surname }}
+                        </a>
 
-            @endguest
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('settings') }}"><i class="fas fa-cog"></i>
+                                Ajustes</a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                         document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+
+                @endguest
+            </div>
         </div>
-    </div>
+
+    </section>
 
     <main class="py-4">
         @yield('content')
