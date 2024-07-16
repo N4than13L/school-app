@@ -8,6 +8,7 @@ use App\Models\Subject;
 use App\Models\Student;
 use App\Models\Course;
 
+
 class Semester extends Model
 {
     use HasFactory;
@@ -38,11 +39,5 @@ class Semester extends Model
     public function courses()
     {
         return $this->belongsTo(Course::class, "Course_id");
-    }
-
-    // relacion de muchos a uno.
-    public function students()
-    {
-        return $this->belongsTo(Student::class, "Students_id");
     }
 }

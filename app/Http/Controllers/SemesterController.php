@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Semester;
 use App\Models\Student;
+use App\Models\Course;
 use App\Models\Subject;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SemesterController extends Controller
 {
@@ -36,10 +39,12 @@ class SemesterController extends Controller
 
         $student = Student::orderBy('id', 'desc')->paginate(50);
         $subject = Subject::orderBy('id', 'desc')->paginate(50);
+        $course = Course::orderBy('id', 'desc')->paginate(50);
 
         return view('semester.add', [
             'student' => $student,
-            'subject' => $subject
+            'subject' => $subject,
+            'course' => $course
         ]);
     }
 
@@ -49,12 +54,14 @@ class SemesterController extends Controller
         $semester = new Semester();
 
         $period = $request->input('period');
-        $student = $request->input('students');
         $subject = $request->input('subject');
+        $course =  $request->input('course');
+        $user = Auth::user()->id;
 
         $semester->period = $period;
         $semester->Subject_id = $subject;
-        $semester->Students_id = $student;
+        $semester->Course_id = $course;
+        $semester->Users_id = $user;
 
         // var_dump($semester);
         // die();
@@ -69,11 +76,13 @@ class SemesterController extends Controller
         $semester = Semester::find($id);
         $student = Student::orderBy('id', 'desc')->paginate(50);
         $subject = Subject::orderBy('id', 'desc')->paginate(50);
+        $course = Course::orderBy('id', 'desc')->paginate(50);
 
         return view('semester.editar', [
             'semester' => $semester,
             'student' => $student,
-            'subject' => $subject
+            'subject' => $subject,
+            'course' => $course
         ]);
     }
 
@@ -82,12 +91,24 @@ class SemesterController extends Controller
         $semester = new Semester();
 
         $period = $request->input('period');
-        $student = $request->input('students');
         $subject = $request->input('subject');
+        $course =  $request->input('course');
 
         $semester->period = $period;
         $semester->Subject_id = $subject;
-        $semester->Students_id = $student;
+        $semester->Course_id = $course;
+
+        // var_dump($semester);
+        // die();
+
+        DB::table('Semesters')
+            ->where('id', $id)
+            ->update([
+                'period' => $period,
+                'Subject_id' => $subject,
+                'Course_id' => $course,
+            ]);
+
 
         return redirect()->route('period')->with(['message' => 'semestre actualizado con exito']);
     }

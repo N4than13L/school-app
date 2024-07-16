@@ -119,6 +119,25 @@
                                 </div>
                             </div>
 
+                            {{-- course --}}
+                            <div class="row mb-3">
+                                <label for="course"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Curso a seleccionar') }}</label>
+
+                                <div class="col-md-6">
+                                    <select name="course" class="form-select" aria-label="Default select example">
+                                        <option>Selecciona el curso</option>
+                                        @foreach ($course as $courses)
+                                            <option selected value="{{ $courses->id }}">
+                                                {{ $courses->name }}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-success">

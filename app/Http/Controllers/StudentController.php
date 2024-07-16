@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Tutor;
 use App\Models\Teacher;
+use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -38,10 +39,12 @@ class StudentController extends Controller
     {
         $tutor = Tutor::orderBy('id', 'desc')->paginate(50);
         $teacher = Teacher::orderBy('id', 'desc')->paginate(50);
+        $course = Course::orderBy('id', 'desc')->paginate(50);
 
         return view('students.add', [
             'tutor' => $tutor,
-            'teacher' => $teacher
+            'teacher' => $teacher,
+            'course' => $course
         ]);
     }
 
@@ -58,6 +61,7 @@ class StudentController extends Controller
         $sex = $request->input('sex');
         $class_teacher = $request->input('class_teacher');
         $class_tutor = $request->input('class_tutor');
+        $course = $request->input('course');
 
         $student->name = $name;
         $student->surname = $surname;
@@ -66,6 +70,7 @@ class StudentController extends Controller
         $student->Users_id = $id;
         $student->Teachers_id = $class_teacher;
         $student->Tutors_id = $class_tutor;
+        $student->Course_id = $course;
 
         // var_dump($student);
         // die();
@@ -81,11 +86,13 @@ class StudentController extends Controller
         $student = Student::find($id);
         $tutor = Tutor::orderBy('id', 'desc')->paginate(50);
         $teacher = Teacher::orderBy('id', 'desc')->paginate(50);
+        $course = Course::orderBy('id', 'desc')->paginate(50);
 
         return view('students.edit', [
             'student' => $student,
             'tutor' => $tutor,
-            'teacher' => $teacher
+            'teacher' => $teacher,
+            'course' => $course
         ]);
     }
 
@@ -102,6 +109,7 @@ class StudentController extends Controller
         $sex = $request->input('sex');
         $class_teacher = $request->input('class_teacher');
         $class_tutor = $request->input('class_tutor');
+        $course = $request->input('course');
 
         $student->name = $name;
         $student->surname = $surname;
@@ -110,6 +118,7 @@ class StudentController extends Controller
         $student->Users_id = $id;
         $student->Teachers_id = $class_teacher;
         $student->Tutors_id = $class_tutor;
+        $student->Course_id = $course;
 
         // var_dump($student);
         // die();
@@ -123,7 +132,8 @@ class StudentController extends Controller
                 'sex' => $sex,
                 'Users_id' => $id_user,
                 'Teachers_id' => $class_teacher,
-                'Tutors_id' => $class_tutor
+                'Tutors_id' => $class_tutor,
+                'Course_id' => $course
             ]);
 
         return redirect()->route('students')->with(['message' => 'Informacion de alumno actualizada con exito']);

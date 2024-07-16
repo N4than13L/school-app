@@ -49,17 +49,17 @@
                                 </div>
                             </div>
 
-                            {{-- estudiante --}}
+                            {{-- curso --}}
                             <div class="row mb-3">
-                                <label for="students"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Selecciona el alumno') }}</label>
+                                <label for="course"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Cursos disponibles') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="students" class="form-select" aria-label="Default select example">
+                                    <select name="course" class="form-select" aria-label="Default select example">
                                         <option>Seleccionar alumno</option>
-                                        @foreach ($student as $students)
-                                            <option selected value="{{ $students->id }}">
-                                                {{ $students->name . ' ' . $students->surname }}</option>
+                                        @foreach ($course as $courses)
+                                            <option selected value="{{ $courses->id }}">
+                                                {{ $courses->name }}</option>
                                         @endforeach
 
                                     </select>

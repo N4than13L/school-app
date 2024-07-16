@@ -22,8 +22,8 @@
                                 <th scope="col">Id</th>
                                 <th scope="col">Periódo</th>
                                 <th scope="col">Asignatura</th>
-                                <th scope="col">Estudiante</th>
-                                {{-- <th scope="col">Aciones</th> --}}
+                                <th scope="col">Curso</th>
+                                <th scope="col">Aciones</th>
 
                             </tr>
                         </thead>
@@ -34,7 +34,7 @@
                                     <td scope="row">{{ $semesters->period }}</td>
                                     <td scope="row">{{ $semesters->Subject->name }}</td>
                                     <td scope="row">
-                                        {{ $semesters->Students->name . ' ' . $semesters->Students->surname }}
+                                        {{ $semesters->courses->name }}
                                     </td>
 
                                     <td scope="row">

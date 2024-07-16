@@ -26,6 +26,7 @@
                                 <th scope="col">sexo</th>
                                 <th scope="col">padre/tutor</th>
                                 <th scope="col">Maestro</th>
+                                <th scope="col">Curso</th>
                                 <th scope="col">Aciones</th>
                             </tr>
                         </thead>
@@ -35,10 +36,14 @@
                                     <td scope="row">{{ $students->id }}</td>
                                     <td scope="row">{{ $students->name }}</td>
                                     <td scope="row">{{ $students->surname }}</td>
-                                    <td scope="row">{{ $students->age }}</td>
+                                    <td scope="row">{{ $students->age }} años</td>
                                     <td scope="row">{{ $students->sex }}</td>
                                     <td scope="row">{{ $students->Tutors->name }}</td>
                                     <td scope="row">{{ $students->Teachers->name }}</td>
+                                    <td scope="row">
+                                        {{ $students->courses->name }}
+                                    </td>
+                                    {{-- . ' ' . $students->courses->Course_classification_id --}}
 
                                     <td scope="row">
                                         <a href="{{ route('edit.students', ['id' => $students->id]) }}"
